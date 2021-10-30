@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 2d9a38d22554b3247bbabf6452af0333
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fishPrefab: {fileID: 2059950327126571295, guid: 1dfac2dafc98a95439ff983fccaf634b, type: 3}
+  - obstaclePrefab: {fileID: 587972078833249294, guid: 66d513e52a1ec074797d0ff565d3c2ab, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
