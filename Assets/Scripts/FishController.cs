@@ -37,14 +37,15 @@ public class FishController : MonoBehaviour
 
     void MoveToSpot()
     {
-        pathLength = Vector3.Distance(startMarker, endMarker);
-        float distCovered = (Time.time - startTime) * speed;
-        float pathProgress = distCovered / pathLength;
-
         if (endMarker == transform.position)
         {
            StartCoroutine(ChangeMarkers());
         }
+        
+        pathLength = Vector3.Distance(startMarker, endMarker);
+        float distCovered = (Time.time - startTime) * speed;
+        float pathProgress = distCovered / pathLength;
+
         transform.position = Vector3.Lerp(startMarker, endMarker, pathProgress);
     }
 
@@ -65,7 +66,6 @@ public class FishController : MonoBehaviour
     {
         if (transform.position.x > limit || transform.position.x < -limit || transform.position.z > limit || transform.position.z < -limit)
         {
-            //transform.position = new Vector3(0.0f, -0.7f, 0.0f);
             transform.Rotate(0.0f, transform.rotation.y + 90.0f, 0.0f);
         }
     }
