@@ -46,7 +46,7 @@ public class SpawnManager : MonoBehaviour
     {
         if (type == SpawnType.Consumable)
         {
-            return 0.5f;
+            return 0;
         }
         else if (type == SpawnType.Obstacle)
         {

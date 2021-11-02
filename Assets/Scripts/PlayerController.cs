@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private float speed = 5;
+    public float playerSpeed;
     void Start()
     {
     }
@@ -17,7 +17,16 @@ public class PlayerController : MonoBehaviour
 
     void UpdateMovement()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * playerSpeed * Time.deltaTime);
+        if (GameObject.Find("Player").GetComponent<DetectCollisions>().hasPowerUp)
+        {
+            playerSpeed = 15f;
+        }
+        else
+        {
+            playerSpeed = 7.5f;
+        }
+        
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(0, 1, 0);
