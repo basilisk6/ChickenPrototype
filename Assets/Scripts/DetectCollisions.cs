@@ -11,16 +11,22 @@ public class DetectCollisions : MonoBehaviour
     private Vector3 randomSpawn;
     public bool hasPowerUp = false;
     public GameObject powerUpIndicator;
+    private GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (gameManager.timeRemaining == 0)
+        {
+            Destroy(gameObject);
+            gameManager.gameOverText.gameObject.SetActive(true);
+            gameManager.restartButton.gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +35,9 @@ public class DetectCollisions : MonoBehaviour
         {
             Destroy(other.gameObject);
             RespawnGoal();
+            gameManager.UpdateScore(1);
+            // How to acces timeRemainig in coroutine
+            gameManager.timeRemaining += 10;
             StartCoroutine(SpawnObstacle(transform.position));
         }
 
